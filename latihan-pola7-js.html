@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Pola 7</title>
+</head>
+<body>
+
+    <h2>Latihan Pola 7</h2>
+    <p>Silakan buka <strong>Inspect Element -> Console</strong> untuk melihat hasilnya.</p>
+
+    <script>
+        // Function untuk mencetak pola segitiga jam pasir
+    function cetakPolaSegitigaJamPasir(n) {
+        let hasil = "";
+        // Bagian atas segitiga jam pasir
+        for (let i = n; i >= 1; i--) {
+            for (let j = 1; j <= n - i; j++) {
+                hasil += " ";
+            }
+            for (let k = 1; k <= 2 * i - 1; k++) {
+                hasil += "*";
+            }
+            hasil += "\n";
+        }
+        // Bagian bawah segitiga jam pasir
+        for (let i = 2; i <= n; i++) {
+            for (let j = 1; j <= n - i; j++) {
+                hasil += " ";
+            }
+            for (let k = 1; k <= 2 * i - 1; k++) {
+                hasil += "*";
+            }
+            hasil += "\n";
+        }
+        console.log(hasil);
+    }
+    // Memanggil function
+    cetakPolaSegitigaJamPasir(5); // Output: Pola segitiga jam pasir dengan tinggi 5
+    </script>
+
+</body>
+</html>

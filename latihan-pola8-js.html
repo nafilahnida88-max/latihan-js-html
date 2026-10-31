@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Pola 8</title>
+</head>
+<body>
+
+    <h2>Latihan Pola 8</h2>
+    <p>Silakan buka <strong>Inspect Element -> Console</strong> untuk melihat hasilnya.</p>
+
+    <script>
+        // Function untuk mencetak pola segitiga kosong
+    function cetakPolaSegitigaKosong(n) {
+        let hasil = "";
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= n - i; j++) {
+                hasil += " ";
+            }
+            for (let k = 1; k <= 2 * i - 1; k++) {
+                if (k === 1 || k === 2 * i - 1 || i === n) {
+                    hasil += "*";
+                } else {
+                    hasil += " ";
+                }
+            }
+            hasil += "\n";
+        }
+        console.log(hasil);
+    }
+    // Memanggil function
+    cetakPolaSegitigaKosong(5); // Output: Pola segitiga kosong dengan tinggi 5
+    </script>
+
+</body>
+</html>

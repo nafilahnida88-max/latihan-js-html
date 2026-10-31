@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Pola 6</title>
+</head>
+<body>
+
+    <h2>Latihan Pola 6</h2>
+    <p>Silakan buka <strong>Inspect Element -> Console</strong> untuk melihat hasilnya.</p>
+
+    <script>
+        // Function untuk mencetak pola belah ketupat
+    function cetakPolaBelahKetupat(n) {
+        let hasil = "";
+        // Bagian atas belah ketupat
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= n - i; j++) {
+                hasil += " ";
+            }
+            for (let k = 1; k <= 2 * i - 1; k++) {
+                hasil += "*";
+            }
+            hasil += "\n";
+        }
+        // Bagian bawah belah ketupat
+        for (let i = n - 1; i >= 1; i--) {
+            for (let j = 1; j <= n - i; j++) {
+                hasil += " ";
+            }
+            for (let k = 1; k <= 2 * i - 1; k++) {
+                hasil += "*";
+            }
+            hasil += "\n";
+        }
+        console.log(hasil);
+    }
+
+    // Memanggil function
+        cetakPolaBelahKetupat(5); // Output: Pola belah ketupat dengan tinggi 5
+    </script>
+
+</body>
+</html>

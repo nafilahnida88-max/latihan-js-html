@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Pola</title>
+</head>
+<body>
+
+    <h2>Latihan Pola</h2>
+    <p>Silakan buka <strong>Inspect Element -> Console</strong> untuk melihat hasilnya.</p>
+
+    <script>
+        // Function untuk mencetak pola segitiga
+        function cetakPola(n) {
+            for (let i = 1; i <= n; i++) {
+                let baris = "";
+                for (let j = 1; j <= i; j++) {
+                    baris += "* ";
+                }
+                console.log(baris);
+            }
+        }
+
+        // Memanggil function
+        cetakPola(5);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Pola 4</title>
+</head>
+<body>
+
+    <h2>Latihan Pola 4</h2>
+    <p>Silakan buka <strong>Inspect Element -> Console</strong> untuk melihat hasilnya.</p>
+
+    <script>
+       function cetakPolaSegitigaSamaSisi(tinggi) {
+  let hasil = "";
+  for (let i = 1; i <= tinggi; i++) {
+    // 1. Membuat spasi di kiri untuk menggeser ke tengah
+    let spasi = " ".repeat(tinggi - i);
+
+    // 2. Membuat angka kembar dengan spasi di antaranya agar mekar ke tengah
+    let angka = "";
+    for (let j = 1; j <= i; j++) {
+      angka += i + " "; // Menambahkan spasi setelah angka
+    }
+
+    // 3. Menggabungkan spasi dan angka (dihapus spasi paling ujungnya agar simetris)
+    hasil += spasi + angka.trim() + "\n";
+  }
+  console.log(hasil);
+}
+
+// MEMANGGIL FUNCTION (4 baris sesuai soal):
+cetakPolaSegitigaSamaSisi(4);
+    </script>
+
+</body>
+</html>

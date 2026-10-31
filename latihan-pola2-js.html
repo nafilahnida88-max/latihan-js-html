@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Pola 2</title>
+</head>
+<body>
+
+    <h2>Latihan Pola 2</h2>
+    <p>Silakan buka <strong>Inspect Element -> Console</strong> untuk melihat hasilnya.</p>
+
+    <script>
+        // Function untuk mencetak pola persegi panjang
+        function cetakPolaPersegiPanjang(n, m) {
+            let tinggi = n; // jumlah baris
+            let lebar = m; // jumlah kolom per baris
+            let hasil = "";
+            for (let i = 0; i < tinggi; i++) {
+              for (let j = 0; j < lebar; j++) {
+                hasil += "*";
+              }
+              hasil += "\n";
+             } 
+              console.log(hasil);
+        }
+              
+
+        // Memanggil function
+        cetakPolaPersegiPanjang(4, 8); // Output: Pola persegi panjang dengan tinggi 4 dan lebar 8
+    </script>
+
+</body>
+</html>

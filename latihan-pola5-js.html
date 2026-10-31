@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Pola 5</title>
+</head>
+<body>
+
+    <h2>Latihan Pola 5</h2>
+    <p>Silakan buka <strong>Inspect Element -> Console</strong> untuk melihat hasilnya.</p>
+
+    <script>
+    function cetakSegitigaSamaSisi2(tinggi) {
+  let barisTeks = [];
+  let counter = 1;
+
+  // 1. Generate deretan angka untuk setiap baris dengan spasi pembatas
+  for (let i = 1; i <= tinggi; i++) {
+    let angka = "";
+    for (let j = 1; j <= i; j++) {
+      angka += counter + " "; // Tambahkan spasi setelah angka
+      counter++;
+    }
+    barisTeks.push(angka.trim()); // Hapus spasi di ujung paling kanan
+  }
+
+  // 2. Cari tahu panjang karakter baris yang paling lebar (baris terakhir)
+  let lebarMaksimal = barisTeks[tinggi - 1].length;
+
+  // 3. Gabungkan spasi kiri agar posisinya otomatis rata tengah (center-aligned)
+  let hasilAkhir = "";
+  for (let i = 0; i < tinggi; i++) {
+    let jumlahSpasi = Math.ceil((lebarMaksimal - barisTeks[i].length) / 2);
+    let spasi = " ".repeat(jumlahSpasi);
+    hasilAkhir += spasi + barisTeks[i] + "\n";
+  }
+
+  console.log(hasilAkhir);
+}
+
+// MEMANGGIL FUNCTION:
+cetakSegitigaSamaSisi2(4);
+    </script>
+
+</body>
+</html>

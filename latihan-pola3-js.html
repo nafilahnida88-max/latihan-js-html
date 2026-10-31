@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Pola 3</title>
+</head>
+<body>
+
+    <h2>Latihan Pola 3</h2>
+    <p>Silakan buka <strong>Inspect Element -> Console</strong> untuk melihat hasilnya.</p>
+
+    <script>
+        // Function untuk mencetak pola persegi panjang kosong
+        function cetakPolaPersegiPanjangKosong(tinggi, lebar) {
+            let hasil = "";
+            for (let i = 0; i < tinggi; i++) {
+                for (let j = 0; j < lebar; j++) {
+                    if (i === 0 || i === tinggi - 1 || j === 0 || j === lebar - 1) {
+                        hasil += " * ";
+                    } else {
+                        hasil += "   ";
+                    }
+                }
+                hasil += "\n";
+            }
+            console.log(hasil);
+        }
+
+        // Memanggil function
+        cetakPolaPersegiPanjangKosong(8, 5); // Output: Pola persegi panjang kosong dengan tinggi 8 dan lebar 5
+    </script>
+
+                
+</body>
+</html>

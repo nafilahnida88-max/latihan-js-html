@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Soal 2 - Percabangan</title>
+</head>
+<body>
+
+    <h2>Program Konversi Peran (Role)</h2>
+    <p>Silakan buka <strong>Inspect Element -> Console</strong> untuk melihat hasilnya ya.</p>
+
+    <script>
+        // Fungsi untuk menerjemahkan kode role pakai switch-case
+        function cariRole(kodePeran) {
+            switch (kodePeran) {
+                case "A":
+                    console.log("Kode '" + kodePeran + "' adalah: Admin");
+                    break;
+                case "U":
+                    console.log("Kode '" + kodePeran + "' adalah: User");
+                    break;
+                default:
+                    console.log("Kode '" + kodePeran + "' adalah: Guest");
+                    break;
+            }
+        }
+
+        // Coba beberapa kode role
+        cariRole("A");
+        cariRole("U");
+        cariRole("PQR"); // Contoh role selain A dan U
+    </script>
+
+</body>
+</html>

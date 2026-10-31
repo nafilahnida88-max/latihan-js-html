@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Function 1</title>
+</head>
+<body>
+
+    <h2>Latihan Function 1</h2>
+    <p>Silakan buka <strong>Inspect Element -> Console</strong> untuk melihat hasilnya.</p>
+
+    <script>
+        // Function FizzBuzz(n) untuk mencetak "Fizz", "Buzz", atau "FizzBuzz" berdasarkan kelipatan
+        function FizzBuzz(n) {
+            for (let i = 1; i <= n; i++) {
+                // 1. Jika i adalah kelipatan 15, cetak "FizzBuzz"
+                if (i % 15 === 0) {
+                    console.log("FizzBuzz");
+                }
+                // 2. Jika i adalah kelipatan 3, cetak "Fizz"
+                else if (i % 3 === 0) {
+                    console.log("Fizz");
+                }
+                // 3. Jika i adalah kelipatan 5, cetak "Buzz"
+                else if (i % 5 === 0) {
+                    console.log("Buzz");
+                }
+                // 4. Jika bukan kelipatan ketiganya, cetak angka i itu sendiri.
+                else {
+                    console.log(i);
+                }
+            }
+        }
+
+        // Memanggil function
+        FizzBuzz(9); // Output: Fizz (karena kelipatan 3)
+        FizzBuzz(10); // Output: Buzz (karena kelipatan 5)
+        FizzBuzz(30); // Output: FizzBuzz (karena kelipatan 15)
+        FizzBuzz(7); // Output: 7 (bukan kelipatan 3, 5, atau 15)
+    </script>
+
+</body>
+</html>

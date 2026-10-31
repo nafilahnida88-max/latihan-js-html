@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+
+        /* Bingkai luar kalkulator */
+        .calculator {
+            width: 320px;
+            background-color: #f9f9f9;
+            border: 1.5px solid #000000;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Layar tampilan angka */
+        .display {
+            width: 100%;
+            height: 55px;
+            border: 1.5px solid #000000;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 16px;
+            font-size: 24px;
+            color: #000000;
+            margin-bottom: 16px;
+            background-color: #f3e3e8;
+            overflow-x: auto;
+        }
+
+        /* Layout Grid untuk tombol-tombol */
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        /* Gaya umum tombol */
+        .btn {
+            height: 50px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.1s ease;
+        }
+
+        .btn:active {
+            opacity: 0.8;
+        }
+
+        /* Skema warna tombol sesuai gambar */
+        .btn-red {
+            background-color: #ea35ae;
+            color: #ffffff;
+        }
+
+        .btn-orange {
+            background-color: #ae159c;
+            color: #ffffff;
+        }
+
+        .btn-dark {
+            background-color: #6d3d52;
+            color: #ffffff;
+        }
+
+        .btn-light {
+            background-color: #e0e0e0;
+            color: #000000;
+        }
+
+        .btn-black {
+            background-color: #310b67;
+            color: #ffffff;
+        }
+
+        /* Tombol 0 memanjang 2 kolom */
+        .btn-zero {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <!-- Display / Layar Kalkulator -->
+        <div class="display" id="display">0</div>
+
+        <!-- Grid Tombol -->
+        <div class="buttons">
+            <!-- Baris 1 -->
+            <button class="btn btn-red" onclick="clearDisplay()">C</button>
+            <button class="btn btn-orange" onclick="backspace()">⌫</button>
+            <button class="btn btn-dark" onclick="appendCharacter('%')">%</button>
+            <button class="btn btn-dark" onclick="appendCharacter('÷')">÷</button>
+
+            <!-- Baris 2 -->
+            <button class="btn btn-light" onclick="appendCharacter('7')">7</button>
+            <button class="btn btn-light" onclick="appendCharacter('8')">8</button>
+            <button class="btn btn-light" onclick="appendCharacter('9')">9</button>
+            <button class="btn btn-dark" onclick="appendCharacter('×')">×</button>
+
+            <!-- Baris 3 -->
+            <button class="btn btn-light" onclick="appendCharacter('4')">4</button>
+            <button class="btn btn-light" onclick="appendCharacter('5')">5</button>
+            <button class="btn btn-light" onclick="appendCharacter('6')">6</button>
+            <button class="btn btn-dark" onclick="appendCharacter('-')">-</button>
+
+            <!-- Baris 4 -->
+            <button class="btn btn-light" onclick="appendCharacter('1')">1</button>
+            <button class="btn btn-light" onclick="appendCharacter('2')">2</button>
+            <button class="btn btn-light" onclick="appendCharacter('3')">3</button>
+            <button class="btn btn-dark" onclick="appendCharacter('+')">+</button>
+
+            <!-- Baris 5 -->
+            <button class="btn btn-light btn-zero" onclick="appendCharacter('0')">0</button>
+            <button class="btn btn-light" onclick="appendCharacter('.')">.</button>
+            <button class="btn btn-black" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+        let currentInput = '0';
+
+        function updateDisplay() {
+            display.textContent = currentInput;
+        }
+
+        function clearDisplay() {
+            currentInput = '0';
+            updateDisplay();
+        }
+
+        function backspace() {
+            if (currentInput.length === 1) {
+                currentInput = '0';
+            } else {
+                currentInput = currentInput.slice(0, -1);
+            }
+            updateDisplay();
+        }
+
+        function appendCharacter(char) {
+            if (currentInput === '0' && char !== '.') {
+                currentInput = char;
+            } else {
+                currentInput += char;
+            }
+            updateDisplay();
+        }
+
+        function calculate() {
+            try {
+                let expression = currentInput
+                    .replace(/×/g, '*')
+                    .replace(/÷/g, '/')
+                    .replace(/%/g, '/100');
+                    
+                let result = eval(expression);
+                currentInput = String(result);
+                updateDisplay();
+            } catch (error) {
+                currentInput = 'Error';
+                updateDisplay();
+                setTimeout(() => {
+                    currentInput = '0';
+                    updateDisplay();
+                }, 1500);
+            }
+        }
+    </script>
+</body>
+</html>
